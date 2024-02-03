@@ -1,6 +1,7 @@
 const express = require('express');
 const rateLimit = require("express-rate-limit");
 const QRCode = require('qrcode');
+const cors = require('cors'); // Importa el módulo CORS
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -13,6 +14,9 @@ const limiter = rateLimit({
 app.use(limiter);
 
 app.use(express.json());
+
+// Configuración de CORS
+app.use(cors());
 
 app.post('/generate', (req, res) => {
     const { text, format } = req.body;
