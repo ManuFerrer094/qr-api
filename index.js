@@ -1,7 +1,6 @@
 const express = require('express');
 const rateLimit = require("express-rate-limit");
 const QRCode = require('qrcode');
-const fs = require('fs');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -16,43 +15,45 @@ app.use(limiter);
 app.use(express.json());
 
 app.post('/generate', (req, res) => {
-    const { text, format, errorCorrectionLevel } = req.body;
+    const { text, format } = req.body;
     if (!text) {
         return res.status(400).json({ error: 'Missing text parameter' });
     }
 
-    let options = {};
-    if (errorCorrectionLevel) {
-        options.errorCorrectionLevel = errorCorrectionLevel;
+    let outputType = 'image/png';
+    switch (format) {
+        case 'png':
+            outputType = 'image/png';
+            break;
+        case 'svg':
+            outputType = 'image/svg+xml';
+            break;
+        case 'utf8':
+            outputType = 'text/plain';
+            break;
+        default:
+            outputType = 'image/png';
     }
 
-    if (format) {
-        if (format === 'svg' || format === 'utf8' || format === 'png') {
-            options.type = format;
-        } else {
-            return res.status(400).json({ error: 'Invalid format parameter' });
-        }
-    }
-
-    QRCode.toFile(`qr_code.${format}`, text, options, (err, url) => {
+    QRCode.toDataURL(text, { type: outputType }, (err, url) => {
         if (err) {
             console.error('Error generating QR code:', err);
             return res.status(500).json({ error: 'Failed to generate QR code' });
         }
-        const file = `${__dirname}/qr_code.${format}`;
-        const stat = fs.statSync(file);
-        res.writeHead(200, {
-            'Content-Type': 'application/octet-stream',
-            'Content-Length': stat.size
-        });
-        const readStream = fs.createReadStream(file);
-        readStream.pipe(res);
+        
+        if (format === 'utf8') {
+            res.send(url);
+        } else {
+            res.json({ qr_code_url: url });
+        }
     });
 });
+
 
 app.get('/', (req, res) => {
     res.send('¡Bienvenido a la API de generación de códigos QR!');
 });
+
 
 app.listen(port, () => {
     console.log(`Server is listening at http://localhost:${port}`);
