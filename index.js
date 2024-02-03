@@ -1,7 +1,7 @@
 const express = require('express');
 const rateLimit = require("express-rate-limit");
-const QRCode = require('qrcode');
-const cors = require('cors'); // Importa el módulo CORS
+const cors = require('cors');
+const qrController = require('./controllers/qrController');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -14,50 +14,47 @@ const limiter = rateLimit({
 app.use(limiter);
 
 app.use(express.json());
-
-// Configuración de CORS
 app.use(cors());
 
-app.post('/generate', (req, res) => {
-    const { text, format } = req.body;
-    if (!text) {
-        return res.status(400).json({ error: 'Missing text parameter' });
-    }
+// Endpoint para generar código QR para URL
+app.post('/generate/url', qrController.generateUrlQR);
 
-    let outputType = 'image/png';
-    switch (format) {
-        case 'png':
-            outputType = 'image/png';
-            break;
-        case 'svg':
-            outputType = 'image/svg+xml';
-            break;
-        case 'utf8':
-            outputType = 'text/plain';
-            break;
-        default:
-            outputType = 'image/png';
-    }
+// Endpoint para generar código QR para vCard
+app.post('/generate/vcard', qrController.generateVCardQR);
 
-    QRCode.toDataURL(text, { type: outputType }, (err, url) => {
-        if (err) {
-            console.error('Error generating QR code:', err);
-            return res.status(500).json({ error: 'Failed to generate QR code' });
-        }
-        
-        if (format === 'utf8') {
-            res.send(url);
-        } else {
-            res.json({ qr_code_url: url });
-        }
-    });
-});
+// Endpoint para generar código QR para Twitter
+app.post('/generate/twitter', qrController.generateTwitterQR);
 
+// Endpoint para generar código QR para correo electrónico
+app.post('/generate/email', qrController.generateEmailQR);
+
+// Endpoint para generar código QR para SMS
+app.post('/generate/sms', qrController.generateSMSQR);
+
+// Endpoint para generar código QR para WiFi
+app.post('/generate/wifi', qrController.generateWiFiQR);
+
+// Endpoint para generar código QR para Bitcoin
+app.post('/generate/bitcoin', qrController.generateBitcoinQR);
+
+// Endpoint para generar código QR para archivos PDF
+app.post('/generate/pdf', qrController.generatePDFQR);
+
+// Endpoint para generar código QR para archivos MP3
+app.post('/generate/mp3', qrController.generateMP3QR);
+
+// Endpoint para generar código QR para la App Store
+app.post('/generate/app-store', qrController.generateAppStoreQR);
+
+// Endpoint para generar código QR para la Galería de imágenes
+app.post('/generate/image-gallery', qrController.generateImageGalleryQR);
+
+// Endpoint original para generar código QR
+app.post('/generate', qrController.generateQR);
 
 app.get('/', (req, res) => {
     res.send('¡Bienvenido a la API de generación de códigos QR!');
 });
-
 
 app.listen(port, () => {
     console.log(`Server is listening at http://localhost:${port}`);
