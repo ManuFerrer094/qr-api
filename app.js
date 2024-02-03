@@ -1,9 +1,14 @@
 const express = require('express');
 const QRCode = require('qrcode');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000; // Modificación para tomar el puerto de la variable de entorno o usar 3000 por defecto
 
 app.use(express.json());
+
+// Ruta principal que devuelve un HTML simple
+app.get('/', (req, res) => {
+    res.send('<h1>Welcome to the QR API!</h1>');
+});
 
 app.post('/generate', (req, res) => {
     const { text } = req.body;
@@ -21,5 +26,5 @@ app.post('/generate', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server is listening at https://qrapi-rho.vercel.app/`);
+    console.log(`Server is listening at http://localhost:${port}`);
 });
