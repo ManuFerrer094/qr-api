@@ -19,7 +19,7 @@ const generateUrlQR = (req, res) => {
 
 // Endpoint para generar código QR para vCard
 const generateVCardQR = (req, res) => {
-    const { name, email, phone } = req.body;
+    const { name, email, phone, address, title, url } = req.body;
     if (!name || !email || !phone) {
         return res.status(400).json({ error: 'Missing contact information' });
     }
@@ -30,6 +30,9 @@ const generateVCardQR = (req, res) => {
         N:${name}
         EMAIL:${email}
         TEL:${phone}
+        ${address ? `ADR:${address}` : ''}
+        ${title ? `TITLE:${title}` : ''}
+        ${url ? `URL:${url}` : ''}
         END:VCARD`;
 
     QRCode.toDataURL(vCardData, { type: 'image/png' }, (err, qrCodeUrl) => {
