@@ -7,7 +7,11 @@ const generateUrlQR = (req, res) => {
         return res.status(400).json({ error: 'Missing URL parameter' });
     }
 
-    QRCode.toDataURL(url, { type: 'image/png' }, (err, qrCodeUrl) => {
+    const options = {
+        width: 250 // Especifica el tamaño deseado del código QR en píxeles
+    };
+
+    QRCode.toDataURL(url, options, (err, qrCodeUrl) => {
         if (err) {
             console.error('Error generating QR code:', err);
             return res.status(500).json({ error: 'Failed to generate QR code' });
@@ -39,7 +43,11 @@ const generateQR = (req, res) => {
             outputType = 'image/png';
     }
 
-    QRCode.toDataURL(text, { type: outputType }, (err, qrCodeUrl) => {
+    const options = {
+        width: 250 // Especifica el tamaño deseado del código QR en píxeles
+    };
+
+    QRCode.toDataURL(text, options, (err, qrCodeUrl) => {
         if (err) {
             console.error('Error generating QR code:', err);
             return res.status(500).json({ error: 'Failed to generate QR code' });
