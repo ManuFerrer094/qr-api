@@ -19,6 +19,9 @@ app.use(cors());
 // Endpoint para generar código QR para URL
 app.post('/generate/url', qrController.generateUrlQR);
 
+// Endpoint para generar código QR para contacto
+app.post('/generate/vcard', qrController.generateContactQR);
+
 // Endpoint original para generar código QR
 app.post('/generate', qrController.generateQR);
 
