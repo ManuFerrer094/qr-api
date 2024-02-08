@@ -1,7 +1,6 @@
 const QRCode = require('qrcode');
 const vCardsJS = require('vcards-js');
 
-// Endpoint para generar código QR para URL
 const generateUrlQR = (req, res) => {
     const { url } = req.body;
     if (!url) {
@@ -9,7 +8,7 @@ const generateUrlQR = (req, res) => {
     }
 
     const options = {
-        width: 250 // Especifica el tamaño deseado del código QR en píxeles
+        width: 250
     };
 
     QRCode.toDataURL(url, options, (err, qrCodeUrl) => {
@@ -22,7 +21,6 @@ const generateUrlQR = (req, res) => {
     });
 };
 
-// Endpoint original para generar código QR
 const generateQR = (req, res) => {
     const { text, format } = req.body;
     if (!text) {
@@ -45,7 +43,7 @@ const generateQR = (req, res) => {
     }
 
     const options = {
-        width: 250 // Especifica el tamaño deseado del código QR en píxeles
+        width: 250
     };
 
     QRCode.toDataURL(text, options, (err, qrCodeUrl) => {
@@ -62,21 +60,17 @@ const generateQR = (req, res) => {
     });
 };
 
-// Endpoint para generar código QR de contacto
 const generateContactQR = (req, res) => {
     const { name, phoneNumber, email, address } = req.body;
 
-    // Crear un objeto vCard
     const vCard = vCardsJS();
     vCard.firstName = name;
     vCard.cellPhone = phoneNumber;
     vCard.email = email;
     vCard.homeAddress.street = address;
 
-    // Convertir el objeto vCard a texto vCard
     const vCardText = vCard.getFormattedString();
 
-    // Generar el código QR a partir del texto vCard
     QRCode.toDataURL(vCardText, (err, qrCodeUrl) => {
         if (err) {
             console.error('Error generating contact QR code:', err);
