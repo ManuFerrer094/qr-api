@@ -22,7 +22,7 @@ app.post('/generate/vcard', qrController.generateContactQR);
 app.post('/generate', qrController.generateQR);
 
 app.get('/', (req, res) => {
-    fs.readFile('documentation.html', 'utf8', (err, data) => {
+    fs.readFile('index.html', 'utf8', (err, data) => {
         if (err) {
             console.error('Error reading HTML file:', err);
             res.status(500).send('Internal Server Error');
