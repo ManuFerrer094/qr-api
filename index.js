@@ -125,7 +125,7 @@ app.get('/', (req, res) => {
                     <li><strong>Cuerpo de la solicitud:</strong>
                         <pre><code><span class="punctuation">{</span>
             <span class="keyword">"url"</span>: <span class="string">"URL_a_codificar"</span>
-    <span class="punctuation">}</span></code></pre>
+<span class="punctuation">}</span></code></pre>
                     </li>
                 </ul>
             </li>
@@ -143,7 +143,7 @@ app.get('/', (req, res) => {
             <span class="keyword">"address"</span>: <span class="string">"Dirección (opcional)"</span>,
             <span class="keyword">"title"</span>: <span class="string">"Título (opcional)"</span>,
             <span class="keyword">"url"</span>: <span class="string">"URL (opcional)"</span>
-    <span class="punctuation">}</span></code></pre>
+<span class="punctuation">}</span></code></pre>
                     </li>
                 </ul>
             </li>
@@ -157,7 +157,7 @@ app.get('/', (req, res) => {
                         <pre><code><span class="punctuation">{</span>
             <span class="keyword">"tweet"</span>: <span class="string">"Texto del tweet"</span>,
             <span class="keyword">"username"</span>: <span class="string">"Nombre de usuario de Twitter (opcional)"</span>
-    <span class="punctuation">}</span></code></pre>
+<span class="punctuation">}</span></code></pre>
                     </li>
                 </ul>
             </li>
@@ -172,7 +172,7 @@ app.get('/', (req, res) => {
             <span class="keyword">"recipient"</span>: <span class="string">"Correo del destinatario"</span>,
             <span class="keyword">"subject"</span>: <span class="string">"Asunto del correo"</span>,
             <span class="keyword">"body"</span>: <span class="string">"Cuerpo del correo"</span>
-    <span class="punctuation">}</span></code></pre>
+<span class="punctuation">}</span></code></pre>
                     </li>
                 </ul>
             </li>
@@ -186,7 +186,7 @@ app.get('/', (req, res) => {
                         <pre><code><span class="punctuation">{</span>
             <span class="keyword">"phoneNumber"</span>: <span class="string">"Número de teléfono"</span>,
             <span class="keyword">"message"</span>: <span class="string">"Mensaje de texto"</span>
-    <span class="punctuation">}</span></code></pre>
+<span class="punctuation">}</span></code></pre>
                     </li>
                 </ul>
             </li>
@@ -201,7 +201,7 @@ app.get('/', (req, res) => {
             <span class="keyword">"ssid"</span>: <span class="string">"Nombre de la red WiFi"</span>,
             <span class="keyword">"password"</span>: <span class="string">"Contraseña WiFi"</span>,
             <span class="keyword">"securityType"</span>: <span class="string">"Tipo de seguridad (WPA, WEP, etc.)"</span>
-    <span class="punctuation">}</span></code></pre>
+<span class="punctuation">}</span></code></pre>
                     </li>
                 </ul>
             </li>
@@ -215,7 +215,7 @@ app.get('/', (req, res) => {
                         <pre><code><span class="punctuation">{</span>
             <span class="keyword">"address"</span>: <span class="string">"Dirección de Bitcoin"</span>,
             <span class="keyword">"amount"</span>: <span class="string">"Cantidad de Bitcoin (opcional)"</span>
-    <span class="punctuation">}</span></code></pre>
+<span class="punctuation">}</span></code></pre>
                     </li>
                 </ul>
             </li>
@@ -228,7 +228,7 @@ app.get('/', (req, res) => {
                     <li><strong>Cuerpo de la solicitud:</strong>
                         <pre><code><span class="punctuation">{</span>
             <span class="keyword">"fileUrl"</span>: <span class="string">"URL del archivo PDF"</span>
-    <span class="punctuation">}</span></code></pre>
+<span class="punctuation">}</span></code></pre>
                     </li>
                 </ul>
             </li>
@@ -241,7 +241,7 @@ app.get('/', (req, res) => {
                     <li><strong>Cuerpo de la solicitud:</strong>
                         <pre><code><span class="punctuation">{</span>
             <span class="keyword">"audioUrl"</span>: <span class="string">"URL del archivo MP3"</span>
-    <span class="punctuation">}</span></code></pre>
+<span class="punctuation">}</span></code></pre>
                     </li>
                 </ul>
             </li>
@@ -254,7 +254,7 @@ app.get('/', (req, res) => {
                     <li><strong>Cuerpo de la solicitud:</strong>
                         <pre><code><span class="punctuation">{</span>
             <span class="keyword">"appId"</span>: <span class="string">"ID de la aplicación en la App Store"</span>
-    <span class="punctuation">}</span></code></pre>
+<span class="punctuation">}</span></code></pre>
                     </li>
                 </ul>
             </li>
@@ -267,7 +267,7 @@ app.get('/', (req, res) => {
                     <li><strong>Cuerpo de la solicitud:</strong>
                         <pre><code><span class="punctuation">{</span>
             <span class="keyword">"imageUrls"</span>: [<span class="string">"URL1"</span>, <span class="string">"URL2"</span>, ...]
-    <span class="punctuation">}</span></code></pre>
+<span class="punctuation">}</span></code></pre>
                     </li>
                 </ul>
             </li>
