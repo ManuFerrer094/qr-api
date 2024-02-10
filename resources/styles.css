@@ -42,19 +42,19 @@ pre {
   }
   
   .keyword {
-    color: #569cd6; /* Color para palabras clave */
+    color: #569cd6;
   }
   
   .string {
-    color: #ce9178; /* Color para strings */
+    color: #ce9178;
   }
   
   .comment {
-    color: #6a9955; /* Color para comentarios */
+    color: #6a9955;
   }
   
   .punctuation {
-    color: #d4d4d4; /* Color para puntuación */
+    color: #d4d4d4;
   }
   
 
