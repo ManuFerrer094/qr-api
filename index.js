@@ -165,18 +165,29 @@ app.get('/', (req, res) => {
         <h2>Endpoints Disponibles</h2>
         <ol>
             <li>
-                <h3>Generar código QR para URL</h3>
+                <h3>Generar código QR para texto</h3>
                 <ul>
-                    <li><strong>URL:</strong> <code>/generate/url</code></li>
+                    <li><strong>URL:</strong> <code>/generate</code></li>
                     <li><strong>Método:</strong> <code>POST</code></li>
                     <li><strong>Cuerpo de la solicitud:</strong>
                         <pre><code><span class="punctuation">{</span>
-    <span class="keyword">"url"</span>: <span class="string">"URL_a_codificar"</span>
+    <span class="keyword">"text"</span>: <span class="string">"Texto_a_codificar"</span>
 <span class="punctuation">}</span></code></pre>
                     </li>
                 </ul>
             </li>
-        
+            <li>
+            <h3>Generar código QR para URL</h3>
+            <ul>
+                <li><strong>URL:</strong> <code>/generate/url</code></li>
+                <li><strong>Método:</strong> <code>POST</code></li>
+                <li><strong>Cuerpo de la solicitud:</strong>
+                    <pre><code><span class="punctuation">{</span>
+    <span class="keyword">"url"</span>: <span class="string">"URL_a_codificar"</span>
+<span class="punctuation">}</span></code></pre>
+                </li>
+            </ul>
+        </li>
             <li>
                 <h3>Generar código QR para vCard</h3>
                 <ul>
@@ -190,130 +201,6 @@ app.get('/', (req, res) => {
     <span class="keyword">"address"</span>: <span class="string">"Dirección (opcional)"</span>,
     <span class="keyword">"title"</span>: <span class="string">"Título (opcional)"</span>,
     <span class="keyword">"url"</span>: <span class="string">"URL (opcional)"</span>
-<span class="punctuation">}</span></code></pre>
-                    </li>
-                </ul>
-            </li>
-        
-            <li>
-                <h3>Generar código QR para Twitter</h3>
-                <ul>
-                    <li><strong>URL:</strong> <code>/generate/twitter</code></li>
-                    <li><strong>Método:</strong> <code>POST</code></li>
-                    <li><strong>Cuerpo de la solicitud:</strong>
-                        <pre><code><span class="punctuation">{</span>
-    <span class="keyword">"tweet"</span>: <span class="string">"Texto del tweet"</span>,
-    <span class="keyword">"username"</span>: <span class="string">"Nombre de usuario de Twitter (opcional)"</span>
-<span class="punctuation">}</span></code></pre>
-                    </li>
-                </ul>
-            </li>
-        
-            <li>
-                <h3>Generar código QR para correo electrónico</h3>
-                <ul>
-                    <li><strong>URL:</strong> <code>/generate/email</code></li>
-                    <li><strong>Método:</strong> <code>POST</code></li>
-                    <li><strong>Cuerpo de la solicitud:</strong>
-                        <pre><code><span class="punctuation">{</span>
-    <span class="keyword">"recipient"</span>: <span class="string">"Correo del destinatario"</span>,
-    <span class="keyword">"subject"</span>: <span class="string">"Asunto del correo"</span>,
-    <span class="keyword">"body"</span>: <span class="string">"Cuerpo del correo"</span>
-<span class="punctuation">}</span></code></pre>
-                    </li>
-                </ul>
-            </li>
-        
-            <li>
-                <h3>Generar código QR para SMS</h3>
-                <ul>
-                    <li><strong>URL:</strong> <code>/generate/sms</code></li>
-                    <li><strong>Método:</strong> <code>POST</code></li>
-                    <li><strong>Cuerpo de la solicitud:</strong>
-                        <pre><code><span class="punctuation">{</span>
-    <span class="keyword">"phoneNumber"</span>: <span class="string">"Número de teléfono"</span>,
-    <span class="keyword">"message"</span>: <span class="string">"Mensaje de texto"</span>
-<span class="punctuation">}</span></code></pre>
-                    </li>
-                </ul>
-            </li>
-        
-            <li>
-                <h3>Generar código QR para WiFi</h3>
-                <ul>
-                    <li><strong>URL:</strong> <code>/generate/wifi</code></li>
-                    <li><strong>Método:</strong> <code>POST</code></li>
-                    <li><strong>Cuerpo de la solicitud:</strong>
-                        <pre><code><span class="punctuation">{</span>
-    <span class="keyword">"ssid"</span>: <span class="string">"Nombre de la red WiFi"</span>,
-    <span class="keyword">"password"</span>: <span class="string">"Contraseña WiFi"</span>,
-    <span class="keyword">"securityType"</span>: <span class="string">"Tipo de seguridad (WPA, WEP, etc.)"</span>
-<span class="punctuation">}</span></code></pre>
-                    </li>
-                </ul>
-            </li>
-        
-            <li>
-                <h3>Generar código QR para Bitcoin</h3>
-                <ul>
-                    <li><strong>URL:</strong> <code>/generate/bitcoin</code></li>
-                    <li><strong>Método:</strong> <code>POST</code></li>
-                    <li><strong>Cuerpo de la solicitud:</strong>
-                        <pre><code><span class="punctuation">{</span>
-    <span class="keyword">"address"</span>: <span class="string">"Dirección de Bitcoin"</span>,
-    <span class="keyword">"amount"</span>: <span class="string">"Cantidad de Bitcoin (opcional)"</span>
-<span class="punctuation">}</span></code></pre>
-                    </li>
-                </ul>
-            </li>
-        
-            <li>
-                <h3>Generar código QR para archivos PDF</h3>
-                <ul>
-                    <li><strong>URL:</strong> <code>/generate/pdf</code></li>
-                    <li><strong>Método:</strong> <code>POST</code></li>
-                    <li><strong>Cuerpo de la solicitud:</strong>
-                        <pre><code><span class="punctuation">{</span>
-    <span class="keyword">"fileUrl"</span>: <span class="string">"URL del archivo PDF"</span>
-<span class="punctuation">}</span></code></pre>
-                    </li>
-                </ul>
-            </li>
-        
-            <li>
-                <h3>Generar código QR para archivos MP3</h3>
-                <ul>
-                    <li><strong>URL:</strong> <code>/generate/mp3</code></li>
-                    <li><strong>Método:</strong> <code>POST</code></li>
-                    <li><strong>Cuerpo de la solicitud:</strong>
-                        <pre><code><span class="punctuation">{</span>
-    <span class="keyword">"audioUrl"</span>: <span class="string">"URL del archivo MP3"</span>
-<span class="punctuation">}</span></code></pre>
-                    </li>
-                </ul>
-            </li>
-        
-            <li>
-                <h3>Generar código QR para la App Store</h3>
-                <ul>
-                    <li><strong>URL:</strong> <code>/generate/app-store</code></li>
-                    <li><strong>Método:</strong> <code>POST</code></li>
-                    <li><strong>Cuerpo de la solicitud:</strong>
-                        <pre><code><span class="punctuation">{</span>
-    <span class="keyword">"appId"</span>: <span class="string">"ID de la aplicación en la App Store"</span>
-<span class="punctuation">}</span></code></pre>
-                    </li>
-                </ul>
-            </li>
-        
-            <li>
-                <h3>Generar código QR para la Galería de imágenes</h3>
-                <ul>
-                    <li><strong>URL:</strong> <code>/generate/image-gallery</code></li>
-                    <li><strong>Método:</strong> <code>POST</code></li>
-                    <li><strong>Cuerpo de la solicitud:</strong>
-                        <pre><code><span class="punctuation">{</span>
-    <span class="keyword">"imageUrls"</span>: [<span class="string">"URL1"</span>, <span class="string">"URL2"</span>, ...]
 <span class="punctuation">}</span></code></pre>
                     </li>
                 </ul>
