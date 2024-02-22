@@ -147,7 +147,7 @@ app.get('/', (req, res) => {
         
         <div class="row">
             <div class="col-md-6">
-                <h2>Tecnologías Utilizadas</h2>
+                <h2>Tecnologías utilizadas</h2>
                 <p>
                     <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-14.x-green?logo=node.js" alt="Node.js"></a>
                     <a href="https://expressjs.com/"><img src="https://img.shields.io/badge/Express-4.x-blue" alt="Express"></a>
@@ -156,13 +156,13 @@ app.get('/', (req, res) => {
                 </p>
             </div>
             <div class="col-md-6">
-                <h2>Limitación de Solicitudes</h2>
+                <h2>Limitación de solicitudes</h2>
                 <p>La API implementa un límite de solicitudes para prevenir un uso excesivo del servicio. Si excedes el límite de 1500 solicitudes por día, recibirás un mensaje de error.</p>
                 <p><strong>URL Base:</strong> <code>https://qrapi-rho.vercel.app</code></p>
             </div>
         </div>
 
-        <h2>Endpoints Disponibles</h2>
+        <h2>Endpoints sisponibles</h2>
         <ol>
             <li>
                 <h3>Generar código QR para texto</h3>
