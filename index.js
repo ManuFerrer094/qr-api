@@ -162,7 +162,7 @@ app.get('/', (req, res) => {
             </div>
         </div>
 
-        <h2>Endpoints sisponibles</h2>
+        <h2>Endpoints disponibles</h2>
         <ol>
             <li>
                 <h3>Generar código QR para texto</h3>
